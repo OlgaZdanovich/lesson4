@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class MyArray {
     public static void main(String[] args) {
         // int[] arr = {5, 0, 10, 5, 9};
+        int[] arr1 = {5, 6, 12, 15};
+        int[] arr2 = {4, 7, 8, 10, 13, 16};
         int[] arr;
         arr = new int[4];
         int[] temperatures = new int[]{20, 12, 20, 20, 12, 20, 20, 12, 20, 20, 12, 20, 20, 12, 20, 20, 12, 20, 9, 29, 12, 10, 22, 17, 21, 18, 19,20};
@@ -47,14 +49,28 @@ public class MyArray {
                     arr[0] = averEl;
                     System.out.println("Откорректированный массив:");
                     for (int j : arr) {
-                        System.out.println(j);
+                        System.out.println(arr[j]);
                     }
                 }
                 else{
                     System.out.println("Массив не требует корректировки");
                 }
                 break;
-            case 3: break;
+            case 3:
+
+                int resultArr[] = new int[arr1.length + arr2.length];
+                int i = arr1.length -1;
+                int j = arr2.length-1;
+                int k = resultArr.length;
+
+                while(k>0) {
+                    resultArr[--k] = (j <0 || (i >= 0 && arr1[i] >= arr2[j])) ? arr1[i--] : arr2[j--];
+                }
+                for (int l = 0; l <= resultArr.length; l++)
+                 {
+                    System.out.println(resultArr[l]);
+                }
+                break;
             default:
                 System.out.println("Заданный номер не найден!");
 
